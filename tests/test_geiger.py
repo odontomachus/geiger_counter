@@ -6,10 +6,13 @@ import re
 # matches positive integers
 RE_INT = re.compile(r"\d+")
 
-from geiger_counter import print_poisson
+from geiger_counter import (
+    print_poisson,
+    hist,
+)
 
 class Test_geiger(unittest.TestCase):
-    def test_print_poisson():
+    def test_print_poisson(self):
         res = print_poisson(20, 10)
         # Check we have the right number of lines
         self.assertEqual(res.count("\n"), 10)
