@@ -29,6 +29,10 @@ def print_poisson(lam, n):
 def hist(filename, bins):
     """ Load a csv file and return a histogram using pyplot.hist. "bins" specifies the number of bins. """
     # COMPLETE ME GROUP 2
+    data = numpy.loadtxt(fname=filename,delimiter=',')
+    pyplot.hist(data, bins)
+    pyplot.xlabel("Bq")
+    pyplot.ylabel("Counts")
     pass
 
 def usage(error=0):
