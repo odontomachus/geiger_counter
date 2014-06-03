@@ -23,8 +23,14 @@ def print_poisson(lam, n):
     ...
     n,p_n
     """
+    s=""    
+    poi=poisson(lam,n)
+    for i in range(0,n):
+        s += str(i)+","+str(poi[i])+"\n"
+             
+    return s
     # COMPLETE ME GROUP 1
-    pass
+    
 
 def hist(filename, bins):
     """ Load a csv file and return a histogram using pyplot.hist. "bins" specifies the number of bins. """
