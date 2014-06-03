@@ -59,17 +59,18 @@ if __name__ == "__main__":
 
     if command == "generate":
         lam, n = int(sys.argv[2]), int(sys.argv[3])
-        print_poisson(lam, n)
+        print print_poisson(lam, n),
 
     elif command == "plot":
         datafile, bins = sys.argv[2:]
         assert datafile.endswith(".csv"), "Please give me a csv file."
         bins = int(bins)
-        hist_plt = hist(datafile, bins)
+        pyplot.figure()
+        hist_values = hist(datafile, bins)
 
         # save it to a png in the graph folder
-        image_file = datafile[:-4].replace("data/", "graph/")
-        hist_plt.savefig(graphfile)
+        image_file = datafile[:-4].replace("data/", "graphs/")
+        pyplot.savefig(image_file)
 
     # Wrong arguments
     else:
