@@ -23,13 +23,20 @@ def print_poisson(lam, n):
     ...
     n,p_n
     """
-    # COMPLETE ME GROUP 1
-    pass
+    # Start with a new string
+    out = ""
+    for i, value in enumerate(poisson(lam,n)):
+        # for each result, append it to the result
+        out += str(i)+","+str(value) + "\n"
+    return out
 
 def hist(filename, bins):
     """ Load a csv file and return a histogram using pyplot.hist. "bins" specifies the number of bins. """
-    # COMPLETE ME GROUP 2
-    pass
+    # load the data
+    data = numpy.loadtxt(filename, delim=",")
+    # Get the second column, we don't care about the measurement id.
+    values = data[1]
+    return pyplot.hist(values)
 
 def usage(error=0):
     print >>sys.stderr, "python", sys.argv[0], """{generate,plot} <args>

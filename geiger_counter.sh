@@ -1,11 +1,14 @@
 # Generates data for the geiger counter analysis and analyses it.
 
-# COMPLETE THESE GROUP 3
+for i in `seq 20`
+do
+    # generate a data file with 10000 points
+    python geiger_counter/geiger_counter.py generate 40 10000 > data/rad_$i.csv
+done
 
-# Make a loop which calls 
-#   python geiger_counter/geiger_counter.py generate 40 10000
-# 20 times, and saves the output to data/filename_$i.csv
-
-# Make a loop which calls
-#   python geiger_counter plot <filename> 15
-# for every filename in data/
+# find all CSVs in data
+for i in data/*.csv
+do
+    # use the python script to plot them
+    python geiger_counter/geiger_counter.py plot $i 15
+done
