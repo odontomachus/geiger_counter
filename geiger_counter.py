@@ -33,9 +33,9 @@ def print_poisson(lam, n):
 def hist(filename, bins):
     """ Load a csv file and return a histogram using pyplot.hist. "bins" specifies the number of bins. """
     # load the data
-    data = numpy.loadtxt(filename, delim=",")
+    data = numpy.loadtxt(filename, delimiter=",")
     # Get the second column, we don't care about the measurement id.
-    values = data[1]
+    values = data[:, 1]
     return pyplot.hist(values)
 
 def usage(error=0):
