@@ -1,0 +1,214 @@
+Intro
+
+You and two other students are building a set of scripts to analyze your data. Yesterday morning, you fixed a bug which required changing 3 files and many functions. You email your partners the new version of the code and realize that one of them had been working on a new version last week and has added a bunch of features. You now need to try and reconcile the changes in both emails. What do you do? Take the rest of the week off because you're in a rotten mood, or come to a git tutorial!
+
+Git is a version control program. It tracks files and the changes that happen to them. Each of these changes is recorded along with the identity of the person responsible for making them. It makes it possible to go back in time, rather like an undu function. It leaves tracks of the various stages of development.
+
+* Team of 2 changes in emails.
+* Fix big bug
+* See partner added big new feature. $*#*&!
+* Learn git :)
+
+================================================================================
+Overview
+
+    Explain which initialization and configuration steps are required once per machine, and which are required once per repository.
+    Go through the modify-add-commit cycle for single and multiple files and explain where information is stored at each stage.
+    Identify and use Git revision numbers.
+    Compare files with old versions of themselves.
+    Restore old versions of files.
+    Configure Git to ignore specific files, and explain why it is sometimes useful to do so.
+
+================================================================================
+Initialization
+
+git config --global user.name "Jonathan Villemaire-Krajden"
+git config --global user.email "odontomachus@gmail.com"
+git config --global color.ui "auto"
+git config --global core.editor "emacs"
+# windows
+git config --global core.autocrlf true
+
+================================================================================
+New repo
+
+cd
+cd Desktop
+mkdir learn_git
+cd learn_git
+
+mkdir geiger_counter
+cd geiger_counter
+
+pwd .../Desktop/learn_git/geiger_counter # RIGHT?
+
+ls -a
+git init .
+ls
+ls -a
+
+git status
+
+emacs README.md
+ # geier_counter <---- typo
+ # ==============
+ # 
+ # This is a set of scripts to analyze the decay from our radioactive core.
+cat README.md
+ls
+
+git status
+git add README.md
+git status
+git commit -m "Added project description."
+git status
+
+git log
+
+emacs README.md
+fix typo
+# run as:
+# bash geiger.sh
+
+git status
+
+git diff
+
+git add README.md
+
+git diff
+git diff --staged
+
+git local diagram
+
+git commit -m "Fixed typo and added instructions."
+
+echo "Jonathan Villemaire-Krajden <odontomachus@gmail.com>" > AUTHORS.txt
+
+**********
+EXCERCISE:
+1. Create add, and commit and AUTHORS.txt file.
+2. What's the commit id? Where do you find out who the author of the COMMIT was?
+3. Why are they really nasty? Why can't we just use 1,2,3... like svn, cvs?
+
+git add AUTHORS.txt
+
+git commit -m "Added authors file."
+
+git status
+
+git log
+
+================================================================================
+History
+
+git diff HEAD~2 README.md
+git diff HEAD~3 README.md
+
+git diff <commit>
+git diff <short commit>
+
+echo "0" > README.md
+
+git status
+git checkout HEAD README.md
+
+mkdir data
+touch data/{1,2,3,4,5}.dat
+
+echo "*.dat" >> .gitignore
+echo "graphs" >> .gitignore
+
+git status
+git add .gitignore
+git commit -m "Add the ignore file."
+
+================================================================================
+
+Excercise
+
+cd ..
+mkdir planets
+cd planets
+
+Make a repository here with a file called planets.txt with all the planets' names that you can think of.
+Add and commit it.
+
+================================================================================
+
+Key Points
+
+    Use git config to configure a user name, email address, editor, and other preferences once per machine.
+    git init initializes a repository.
+    git status shows the status of a repository.
+    Files can be stored in a project's working directory (which users see), the staging area (where the next commit is being built up) and the local repository (where snapshots are permanently recorded).
+    git add puts files in the staging area.
+    git commit creates a snapshot of the staging area in the local repository.
+    Always write a log message when committing changes.
+    git diff displays differences between revisions.
+    git checkout recovers old versions of files.
+    The .gitignore file tells Git what files to ignore.
+
+
+================================================================================
+
+GITHUB!!!
+
+Remote picture
+
+Create accounts
+
+****
+Everyone has account
+****
+
+Create new repo on github
+
+in the PLANETS REPO
+
+git remote add origin <you
+
+git push -u origin master <your remote url>
+
+cd ..
+git clone <your remote url> planets_copy
+cd planets_copy
+sort the planets by name. Otherwise by distance, weight, etc
+add, commit and push
+
+cd ../planets
+git pull
+
+================================================================================
+
+Key Points
+
+    A local Git repository can be connected to one or more remote repositories.
+    Use the HTTPS protocol to connect to remote repositories until you have learned how to set up SSH.
+    git push copies changes from a local repository to a remote repository.
+    git pull copies changes from a remote repository to a local repository.
+    git clone copies a remote repository to create a local repository with a remote called origin automatically set up.
+
+
+================================================================================
+Collaboration & Conflicts
+
+On github: fork me!
+https://github.com/odontomachus/geiger_counter
+
+cd ../geiger_counter
+
+git remote add upstream https://github.com/odontomachus/geiger_counter.git
+
+git pull <your fork's url>
+
+ls, etc
+
+git push
+
+Make a merge request
+
+====
+If time allows: collaborate
+
+Split into groups: populate shell and python functions to pass the nosetests.
