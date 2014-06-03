@@ -27,7 +27,7 @@ def print_poisson(lam, n):
     out = ""
     for i, value in enumerate(poisson(lam,n)):
         # for each result, append it to the result
-        out += str(i)+","+str(value) + "\n"
+        out += str(i+1)+","+str(value) + "\n"
     return out
 
 def hist(filename, bins):
