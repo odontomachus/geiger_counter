@@ -22,8 +22,8 @@ class Test_geiger(unittest.TestCase):
             parts = line.split(",")
             # Line has two parts
             self.assertEqual(len(parts), 2)
-            self.assertTrue(RE_INT.matches(parts[1]))
+            self.assertTrue(RE_INT.match(parts[1]))
 
-    def test_hist(filename, bins):
+    def test_hist(self):
         pass
 
