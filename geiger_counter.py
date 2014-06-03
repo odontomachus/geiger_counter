@@ -31,7 +31,7 @@ def hist(filename, bins):
     # COMPLETE ME GROUP 2
     data = numpy.loadtxt(fname=filename,delimiter=',')
     pyplot.plot(pyplot.hist(data[:,1], bins=bins))
-    
+    return 
 
 def usage(error=0):
     print >>sys.stderr, "python", sys.argv[0], """{generate,plot} <args>
