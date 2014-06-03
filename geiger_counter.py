@@ -12,7 +12,7 @@ ERROR_ARGUMENT = 10
 
 def poisson(lam, n):
     """ Returns an array with the observed number of decays during one second. The mean number of decays (lambda) for our sample should be "lam". There should be "n" measurements. These should be integers since we are actually counting them (well, virtually). """
-    return numpy.poisson.random(lam, n)
+    return numpy.random.poisson(lam, n)
 
 def print_poisson(lam, n):
     """ Return a string with "n" results from a poisson distribution in the format:
